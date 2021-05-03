@@ -1,0 +1,28 @@
+<h2  style="font-family: Roboto, Helvetica Neue ,sans-serif;">System Notification</h2>
+<p style="font-family: Roboto, Helvetica Neue ,sans-serif;"> To broadcast a push notification to all the users from Admin. Users cannot disable this notification.</p>
+<br>
+    <mat-card class="mat-elevation-z8" style="width: 55%; height: 60%; overflow: auto;">
+        <mat-card-header>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+      <form #formControl="ngForm">
+        <mat-form-field appearance="outline">
+          <mat-label style="text-align: right;">Enter Message in Arabic</mat-label>
+          <textarea style="height: 70px;" type="text" ngModel name="messageAr" (keyup)="charLengthAr($event.target.value)" maxlength="126" matInput dir="rtl"></textarea>
+        </mat-form-field>
+        
+      <div *ngIf = "isShowErrorMessageAr == true" style="color: red; font-size: smaller;"> *Maximum 125 characters only allowed </div>
+      <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Message in English</mat-label>
+          <textarea style="height: 70px;" type="text" ngModel name="messageEn" (keyup)="charLengthEn($event.target.value)" maxlength="126" matInput  ></textarea>
+        </mat-form-field>
+      <div *ngIf = "isShowErrorMessageEn == true" style="color: red; font-size: smaller;"> *Maximum 125 characters only allowed</div>
+      <br>
+      <div mat-dialog-actions>
+        <button mat-raised-button style="background-color: #59be75;" type="button" (click)="SendNotification(formControl.value)">Send</button>
+      </div>
+      </form>
+      </mat-card-content>
+    </mat-card>

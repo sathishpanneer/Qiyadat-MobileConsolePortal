@@ -1,0 +1,44 @@
+<div class="container">
+    <h3 mat-dialog-title>Edit Localization</h3>
+  
+    <form class="mat-dialog-content" #formControl="ngForm">
+        <!-- <div class="form">
+            <mat-form-field appearance="standard">
+              <mat-label>Page Name</mat-label>
+              <input matInput #input placeholder="Page Name" [disabled]="true" [(ngModel)]="data.pageName" name="pageName">
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div> -->
+
+          <div class="form">
+            <mat-form-field  appearance="standard">
+              <mat-label>Page Display Name</mat-label>
+              <input matInput #input class="form-control" [disabled]="true" [(ngModel)]="data.pageDisplayName" placeholder="Page Display Name"  name="pageDisplayName">
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field  appearance="standard">
+              <mat-label>Label Name</mat-label>
+              <input matInput #input class="form-control" [disabled]="true" [(ngModel)]="data.labelName" placeholder="Label Name"  name="labelName" >
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field appearance="standard">
+              <mat-label>Value</mat-label>
+              <input matInput #input class="form-control" [(ngModel)]="data.value" placeholder="Value"  name="value">
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+          
+  
+      <div mat-dialog-actions>
+        <button mat-raised-button  style="background-color: #59be75; left: 32%;" type="button" [disabled]="!formControl.valid" [mat-dialog-close]="1">Save</button>
+        <button mat-stroked-button  style="left: 32%;" (click)="cancel()" type="button" tabindex="-1">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

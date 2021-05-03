@@ -1,0 +1,112 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 250px;
+}
+
+main {
+    padding: 10px;
+}
+
+.fixed-topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 7.5%;
+    bottom: 0;
+    left: 0;
+    //right: 0;
+  }
+  
+  .sibebar-content {
+    width: 15vw;
+    background-color: gainsboro;
+  }
+  
+  .content {
+    //padding: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(240, 240, 240);
+  }
+
+  .container{
+    width: 100%;
+    margin: 0 auto; /* Center the DIV horizontally */
+}
+.fixed-header, .fixed-footer{
+    width: 100%;
+    position: fixed;        
+    background: #59be75;
+    //padding: 10px 0;
+    color: #fff;
+}
+.fixed-header{
+    top: 0;
+    left: 0;
+    height: 55px;
+}
+.fixed-footer{
+    bottom: 0;
+}
+.mat-drawer-content{
+  overflow: hidden !important;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  height: 60px;
+  //margin: -8px;
+  display: flex;
+  align-items: center;
+  background-color: #59be75;
+  color: white;
+  font-weight: 600;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.toolbar img {
+  margin: 0 45px;
+}
+
+.toolbar button {
+  margin: 0 8px;
+  height: 60px;
+  font-size: medium;
+}
+
+.mat-card{
+  min-height: 100%;
+  padding: 0px !important;
+}
+
+.is-active{
+  color: blueviolet;
+}
+
+.contents {
+  display: flex;
+  margin: 65px auto;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  height: 80%;
+}

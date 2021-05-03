@@ -1,0 +1,66 @@
+<h2 style="font-family: Roboto, Helvetica Neue , sans-serif;">App configuration settings</h2>
+<p style="font-family: Roboto, Helvetica Neue ,sans-serif;">To manage static settings like Admin email, phone, Allowed duration for bio video  etc.</p>
+<div class="example-header">
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
+  </mat-form-field>
+</div>
+<div class=" mat-elevation-z8" style="width: 80%;">
+  <mat-table #table [dataSource]="dataSource" matSort  matSortDisableClear matSortDirection="desc" >
+
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="key">
+      <mat-header-cell *matHeaderCellDef> Key </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.key}} </mat-cell>
+    </ng-container> -->
+
+    <!-- Name Column -->
+    
+
+    <!-- Weight Column -->
+    <!-- <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+    </ng-container> -->
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="value">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Value </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+    </ng-container>
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <!-- <button mat-fab style="color:white; background-color: #59be75;" (click)="AddAppSetting()" matToolTip="Add new">
+          <mat-icon aria-label="add">add</mat-icon>
+        </button> -->
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button style="color: #59be75;" (click)="EditAppSetting(this.row)" matToolTip="Edit">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button style="color: #59be75;" (click)="DeleteAppSetting(row.key)" matToolTip="Delete">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-progress-bar mode="indeterminate" *ngIf="progressCompleted == false" style="background-color: #59be75;">
+  </mat-progress-bar>
+
+  <mat-paginator class="mat-elevation-z8 mat-paginator-sticky" [pageSizeOptions]="[10, 50, 100]"></mat-paginator>
+</div>

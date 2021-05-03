@@ -1,0 +1,73 @@
+table {
+    width: 100%;
+  }
+
+  .example-header {
+    min-height: 64px;
+    //padding: 8px 24px 0;
+  }
+
+  
+
+  .mat-paginator{
+    width: 100%;
+  }
+
+  .mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+  }
+
+  .mat-table {
+    overflow: auto;
+    max-height: 420px;
+  }
+
+  .mat-header-cell{
+    font-size: 14px;
+    //font-weight: bold;
+    color: rgba(0,0,0,.87);
+  }
+
+  .mat-column-pageDisplayName{
+    min-width: 170px;
+    padding-right: 8px;
+    padding-left: 15px;
+  }
+
+  .mat-column-labelName{
+    min-width: 170px;
+    padding-right: 8px;
+    padding-left: 8px;
+    word-break: break-all;
+  }
+
+  .mat-column-languageCode{
+    min-width: 85px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .mat-column-key{
+    min-width: 350px;
+    padding-right: 8px;
+    padding-left: 8px;
+    word-break: break-all;
+  }
+
+  .mat-column-value{
+    min-width: 275px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .mat-column-actions{
+    min-width: 70px;
+    padding-right: 8px;
+    padding-left: 8px;
+  } 
+
+  .mat-footer-row, mat-header-row, mat-row {
+    align-items: stretch;
+  }

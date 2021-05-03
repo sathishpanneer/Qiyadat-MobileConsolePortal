@@ -1,0 +1,48 @@
+<div class="container">
+    <h3 mat-dialog-title>Add New Localization</h3>
+  
+    <form class="mat-dialog-content"  #formControl="ngForm">
+        <div class="form">
+            <mat-form-field appearance="standard">
+              <mat-label>Page Name</mat-label>
+              <input matInput #input placeholder="Page Name" [(ngModel)]="data.pageName" name="pageName" required>
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field appearance="standard">
+              <mat-label>Page Display Name</mat-label>
+              <input matInput #input class="form-control" [(ngModel)]="data.pageDisplayName" placeholder="Page Display Name" name="pageDisplayName">
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form">
+            <mat-form-field  appearance="standard">
+              <mat-label>Label Name</mat-label>
+              <input matInput #input class="form-control" [(ngModel)]="data.labelName" placeholder="Label Name"  name="labelName" required>
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form">
+            <mat-form-field appearance="standard">
+              <mat-label>Value in English</mat-label>
+              <input matInput #input class="form-control" [(ngModel)]="data.english" placeholder="Value in English"  name="english" required>
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form">
+            <mat-form-field  appearance="standard">
+              <mat-label>Value in Arabic</mat-label>
+              <input matInput #input class="form-control" [(ngModel)]="data.arabic" placeholder="Value in Arabic"  name="arabic" required>
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+      <div mat-dialog-actions>
+        <button mat-button  style="background-color: #59be75; left: 35%;" type="button" [disabled]="!formControl.valid"  [mat-dialog-close]="1">Save</button>
+        <button mat-raised-button  style="left: 35%;" (click)="cancel()" type="button" tabindex="-1">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,51 @@
+<div class="main-div">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading == true" style="background-color: #59be75;">
+  </mat-progress-bar>
+  <mat-card class="mat-elevation-z8"
+    style="height: 70%;width: 100%; background: rgba(255, 255, 255, 0.7098039215686275) !important;">
+    <mat-card-header style="justify-content: center;">
+      <div style="height: 100px;">
+        <img style="height: inherit;" src="assets/Images/GLP.png" />
+      </div>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <form #formControl="ngForm">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <!-- <input type="text" matInput placeholder="Username" > -->
+            <input matInput #input placeholder="Username" ngModel name="username" required>
+            <mat-error *ngIf="formControl.invalid">{{getUsernameErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <!-- <input type="password" matInput placeholder="Password" > -->
+            <input type="password" matInput #input placeholder="Password" ngModel name="password" required>
+            <mat-error *ngIf="formControl.invalid">{{getPasswordErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </p>
+
+        <br>
+        <div class="button">
+          <!-- <button type="submit" mat-button>Login</button> -->
+          <!-- <button  mat-button style="width: 100%; background-color: #46be8a ; color: #ffffff;">Login</button> -->
+          <button mat-button style="width: 100%; background-color: #46be8a ; color: #ffffff;" type="submit"
+            [disabled]="!formControl.valid" (click)="Login(formControl.value)">Login</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div>
+
+  <footer style="bottom: 10px; display: flex;">
+    <img style="height: 45px; margin-left: -41px;" src="assets/Images/GLP-icon-old.png" /> <br>
+    <p style="font-family: Roboto, Helvetica Neue ,sans-serif;">UAE GOVERNMENT LEADERS PROGRAMME © 2020</p>
+  </footer>
+
+</div>

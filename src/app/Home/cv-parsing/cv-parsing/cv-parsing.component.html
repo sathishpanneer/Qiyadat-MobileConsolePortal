@@ -1,0 +1,139 @@
+<h2  style="font-family: Roboto, Helvetica Neue ,sans-serif;">CV Parsing</h2>
+
+<br>
+    <mat-card class="mat-elevation-z8" style="width: 90%; height: 80%; overflow: auto;">
+        <mat-card-header>
+            <form #formControl="ngForm">
+                <p><b>Upload your resume : </b> 
+                  <input #file type="file"  #file (change)="onFileChange($event)">
+                </p>
+                </form>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+      
+<div *ngIf="isParsed == true">
+    <table>
+        <tr>
+          <th colspan="3" style="text-align-last: center;">{{CVResponse.Name.FullName}}</th>
+        </tr>
+        <tr>    
+          <td >Profile Photo </td>
+          <td colspan="2"><img *ngIf="isImageAvailable == true" [src]="srcData"  alt=""  height=100 width=100/></td>
+        </tr>
+        <tr>    
+          <td >Date of birth</td>
+          <td colspan="2">{{CVResponse.DateOfBirth}}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td colspan="2"> {{CVResponse.Gender}}</td>
+        </tr>
+        <tr>
+            <td>Nationality</td>
+            <td colspan="2">  {{CVResponse.Nationality}}</td>
+          </tr>
+        <tr *ngFor="let email of CVResponse.Email">
+          <td>Email</td>
+          <td colspan="2">{{email.EmailAddress}}</td>
+        </tr>
+        <tr *ngFor="let phone of CVResponse.PhoneNumber">
+          <td>Phone number</td>
+          <td colspan="2">{{phone.Number}}</td>
+        </tr>
+        <tr *ngFor="let address of CVResponse.Address">
+          <td>Address:</td>
+          <td colspan="2">{{address.Street}} <br>
+            {{address.City}}<br>
+            {{address.State}} <br>
+            {{address.Country}} <br>
+            {{address.ZipCode}}
+          </td>
+        </tr>
+        <tr>
+          <td>PASSPORT:</td>
+          <td colspan="2">{{CVResponse.PassportDetail.PassportNumber}} <br>
+            {{CVResponse.PassportDetail.DateOfExpiry}}<br>
+            {{CVResponse.PassportDetail.DateOfIssue}} <br>
+            {{CVResponse.PassportDetail.PlaceOfIssue}} </td>
+        </tr>
+        <tr>
+            <th colspan="3">Education</th>
+          </tr>
+          <tr>
+            <th>DegreeName</th>
+            <th>Institution</th>
+            <th>Year</th>
+          </tr>
+          <tr *ngFor="let education of CVResponse.SegregatedQualification">
+            <td>{{education.Degree.DegreeName}}</td>
+            <td >{{education.Institution.Name}} <br>
+                {{education.Institution.Location.Country}} <br>
+                </td>
+            <td >{{education.StartDate}} - {{education.EndDate}}</td>
+          </tr>
+          <tr>
+            <th colspan="3">Certification/Training
+            </th>
+          </tr>
+          <tr>
+            <td>Certification</td>
+            <td colspan="2" >{{CVResponse.Certification}}</td>
+          </tr>
+          <tr>
+            <td>SKILLS</td>
+            <td colspan="2" >{{CVResponse.SkillBlock}}</td>
+          </tr>
+          <tr>
+            <th colspan="3">EXPERIENCE
+            </th>
+          </tr>
+          <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Year</th>
+          </tr>
+          <tr  *ngFor="let experience of CVResponse.SegregatedExperience">
+            <td>{{experience.Employer.EmployerName}} <br>
+                {{experience.Location.City}}
+
+            </td>
+            <td ><b>{{experience.JobProfile.Title}}</b> <br><br>
+                {{experience.JobDescription}}</td>
+            <td >{{experience.JobPeriod}}</td>
+          </tr>
+          <tr *ngFor="let language of CVResponse.LanguageKnown">
+            <td>Language</td>
+            <td colspan="2">{{language.Language}}</td>
+          </tr>
+      </table>
+    <!-- <p [innerHTML]= "CVResponse"></p> -->
+    <!-- <p> {{CVResponse | json}} </p> -->
+    <!-- <p>Resume File Name: {{CVResponse.ResumeFileName}}</p>
+    <p>Resume Language:</p>
+    <p>Language: {{CVResponse.ResumeLanguage.Language}}</p>
+    <p>Parsing Date: {{CVResponse.ParsingDate}}</p>
+    <p>Resume Country:</p>
+    <p>Country: {{CVResponse.ResumeCountry.Country}}</p>
+    <p>CountryCode: </p>
+    <p>IsoAlpha2: {{CVResponse.ResumeCountry.CountryCode.IsoAlpha2}}</p>
+    <p>IsoAlpha3: {{CVResponse.ResumeCountry.CountryCode.IsoAlpha3}}</p>
+    <p>UNCode: {{CVResponse.ResumeCountry.CountryCode.UNCode}}</p>
+    <p>Name:</p>
+    <p>Full Name: {{CVResponse.Name.FullName}}</p>
+    <p>Title Name: {{CVResponse.Name.TitleName}}</p>
+    <p>First Name: {{CVResponse.Name.FirstName}}</p>
+    <p>Middle Name: {{CVResponse.Name.MiddleName}}</p>
+    <p>Last Name: {{CVResponse.Name.LastName}}</p>
+    <p>Formatted Name: {{CVResponse.Name.FormattedName}}</p>
+    <p>Confidence Score: {{CVResponse.Name.ConfidenceScore}}</p> -->
+
+
+</div>
+
+        <ngx-spinner bdColor="rgba(70, 70, 70, 0.6)" size="default"  type="ball-spin-clockwise" [fullScreen]="false">
+            <p style="color: white"> Your resume is parsing.. Please wait. </p>
+        </ngx-spinner>
+      </mat-card-content>
+    </mat-card>
+    

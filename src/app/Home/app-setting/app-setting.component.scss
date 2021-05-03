@@ -1,0 +1,63 @@
+table {
+    width: 80%;
+  }
+
+
+.example-header {
+    min-height: 64px;
+    //padding: 8px 24px 0;
+  }
+
+  .table-header{
+    height: 70%;
+   // overflow: auto;
+  }
+
+  .mat-paginator{
+    width: 100%;
+  }
+  .mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+  }
+
+  .snack-bar{
+      color:  #59be75;
+  }
+
+  .mat-table {
+    overflow: auto;
+    max-height: 420px;
+  }
+
+  .mat-header-cell{
+    font-size: 14px;
+    //font-weight: bold;
+    color: rgba(0,0,0,.87);
+  }
+
+  // .mat-column-description{
+  //   min-width: 170px;
+  //   padding-right: 8px;
+  //   padding-left: 8px;
+  //   word-break: break-all;
+  // }
+
+  // .mat-column-value{
+  //   min-width: 170px;
+  //   padding-right: 8px;
+  //   padding-left: 8px;
+  //   word-break: break-all;
+  // }
+
+  .mat-column-actions{
+    max-width: 70px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+
+  .mat-footer-row, mat-header-row, mat-row {
+    align-items: stretch;
+  }

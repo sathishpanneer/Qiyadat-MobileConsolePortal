@@ -1,0 +1,71 @@
+<h2  style="font-family: Roboto, Helvetica Neue ,sans-serif;">Globalization</h2>
+<p style="font-family: Roboto, Helvetica Neue ,sans-serif;">To manage the mobile labels, messages in English or Arabic.</p>
+<div class="example-header">
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <!-- <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter"> -->
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" >
+  </mat-form-field>
+</div>
+<div class=" mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- <ng-container matColumnDef="pageName">
+      <mat-header-cell *matHeaderCellDef> Page Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pageName}} </mat-cell>
+    </ng-container> -->
+
+    <ng-container matColumnDef="pageDisplayName">
+      <mat-header-cell *matHeaderCellDef> Page Display Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pageDisplayName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="labelName">
+      <mat-header-cell *matHeaderCellDef> Label Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.labelName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="languageCode">
+      <mat-header-cell *matHeaderCellDef> Lang Code </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.languageCode}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="key">
+      <mat-header-cell *matHeaderCellDef> Key </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.key}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="value">
+      <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+    </ng-container>
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <!-- <button  mat-fab style="color:white; background-color: #59be75;" (click)="AddLocalization()" matToolTip="Add new">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button> -->
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button style="color: #59be75;"
+        (click)="EditLocalization(this.row)" matToolTip="Edit">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button style="color: #59be75;" (click)="DeleteLocalization(row.id)" matToolTip="Delete">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-progress-bar mode="indeterminate" *ngIf="progressCompleted == false" style="background-color: #59be75;">
+  </mat-progress-bar>
+  
+  <mat-paginator class="mat-elevation-z8 mat-paginator-sticky" [pageSizeOptions]="[50, 100, 500]"></mat-paginator>
+</div>

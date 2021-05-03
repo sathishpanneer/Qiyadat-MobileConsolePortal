@@ -1,0 +1,40 @@
+<div class="container">
+  <h3 mat-dialog-title>Add New Setting</h3>
+
+  <form class="mat-dialog-content" #formControl="ngForm">
+    <div class="form">
+      <mat-form-field appearance="standard">
+        <mat-label>Key</mat-label>
+        <input matInput #input placeholder="Key" [(ngModel)]="data.key" name="key" required>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="standard">
+        <mat-label>Value</mat-label>
+        <input matInput #input class="form-control" [(ngModel)]="data.value" placeholder="Value" name="value" required>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field appearance="standard">
+        <mat-label>Type</mat-label>
+        <input matInput #input class="form-control" [(ngModel)]="data.type" placeholder="Type" name="type">
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field appearance="standard">
+        <mat-label>Description</mat-label>
+        <input matInput #input class="form-control" [(ngModel)]="data.description" placeholder="Description" name="description">
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button style="background-color: #59be75; left: 35%;" type="button" [disabled]="!formControl.valid" [mat-dialog-close]="1">Save</button>
+      <button mat-raised-button style="left: 35%;" (click)="cancel()" type="button" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>
